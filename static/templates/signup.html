@@ -1,10 +1,46 @@
 {% extends 'base.html' %}
 
-{% block content %}
-<h1>JOIN!</h1>
+{% block jumbotron %}
 
-<form method='POST' action ''> {% csrf_token %}
-    {{ form.as_p }}
-    <input type='submit'>
-</form>
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>hi there</h1>
+        <p>this is a jumbotron Bootstrap template I'm playing with</p>
+        <!-- <p><a class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>-->
+      </div>
+    </div>
+    
+{% endblock %}
+
+{% block content %}
+<!-- Example row of columns -->
+<div class="row">
+  <div class="col-sm-3">
+    <h2>data nerd stuff</h2>
+    <p>coming soon</p>
+    <!--<p><a class="btn btn-default" href="{% url "aboutme" %}" role="button">View details &raquo;</a></p> -->
+  </div>
+  <div class="col-sm-3">
+    <h2>personal stuff</h2>
+    <p>coming soon </p>
+    <!--<p><a class="btn btn-default" href="{% url "aboutme" %}" role="button">View details &raquo;</a></p>-->
+ </div>
+  <div class="col-sm-3">
+    <h2>random stuff</h2>
+    <p>like <a href="http://www.thebestdinosaur.com/"> this</a></p>
+    <!--<p><a class="btn btn-default" href="{% url "aboutme" %}" role="button">View details &raquo;</a></p>-->
+  </div>
+<!--
+  <div class="col-sm-3">
+
+  <h1>JOIN!</h1>
+  <form method='POST' action ''> {% csrf_token %}
+      {{ form.as_p }}
+      <input type='submit' class="btn btn-success">
+  </form>
+      
+  </div>
+  -->
+</div>
 {% endblock %}
