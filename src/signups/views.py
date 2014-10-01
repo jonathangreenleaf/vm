@@ -27,3 +27,8 @@ def aboutme(request):
     
     return render_to_response("aboutme.html", locals(),
                               context_instance=RequestContext(request))
+
+def datastuff(request):
+    
+    return render_to_response("datastuff.html", locals(),
+                              context_instance=RequestContext(request))
