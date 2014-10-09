@@ -37,6 +37,10 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'signups',
+    #'django_markwhat', # markup editor/filters
+    #'pagedown', # App for adding markdown preview to the django admin
+    'blog', # Blog Module
+    #'django.contrib.comments', # comments for the blog
 )
 
 MIDDLEWARE_CLASSES = (
@@ -85,7 +89,7 @@ STATIC_URL = '/static/'
 # Template Location
 TEMPLATE_DIRS = (
     os.path.join(os.path.dirname(BASE_DIR), "static", "templates"),
-    #'/home/debian/Desktop/skillshare/static/templates',
+    #'/home/debian/Desktop/skillshare/static/templates/',
 )
 
 if DEBUG:
