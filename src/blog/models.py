@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
+from markdown2 import markdown
 
 #import logging
 #l = logging.getLogger('django.db.backends')
@@ -10,7 +11,6 @@ from django.core.urlresolvers import reverse
 class PostManager(models.Manager):
     def all(self):
         return super(PostManager, self).filter(publish=True)
-        
 
 class Category(models.Model):
     title = models.CharField(max_length=65)
@@ -33,7 +33,13 @@ class Post(models.Model):
     content = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
+    #content_html = models.TextField(editable=True, blank=True, null=True)
     objects = PostManager()
+    
+    def save(self):
+        #if wanted codehilite div around content_html
+        #self.content_html = markdown(self.content, ['codehilite'])
+        super(Post, self).save()
 
     class Meta:
         ordering = ['-timestamp',]\
