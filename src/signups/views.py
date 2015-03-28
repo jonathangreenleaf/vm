@@ -32,3 +32,13 @@ def datastuff(request):
     
     return render_to_response("datastuff.html", locals(),
                               context_instance=RequestContext(request))
+
+def bikeaccidents(request):
+    
+    return render_to_response("bikeaccidents.html", locals(),
+                              context_instance=RequestContext(request))
+
+def codeexplanation(request):
+    
+    return render_to_response("codeexplanation.html", locals(),
+                              context_instance=RequestContext(request))

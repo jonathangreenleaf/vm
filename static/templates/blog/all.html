@@ -1,15 +1,17 @@
 {% extends 'base.html' %}
- 
+{% load custom_markdown %}
+{% load mytags %}
+
 {% block content %}
 <h1>Blog</h1>
 {% for post in posts %}
-    {{ post.timestamp|date:"N d, Y" }}
+    <h2><a href='{{ post.get_absolute_url }}'>{{ post.title }}</a></h2>
+    {{ post.timestamp|timestamp|date:"N d, Y h:m" }}
         {% for category in post.categories.all %}
             {% if forloop.counter >= 2 %}  |{% endif %}
                 <a href='{{ category.get_absolute_url }}'>{{ category.title }}</a>
          {% endfor %}
-    <h2><a href='{{ post.get_absolute_url }}'>{{ post.title }}</a></h2>
-    <p>{{ post.description }}</p>
+    <p>{{ post.description|custom_markdown }}</p>
 {% endfor %}
 
 <div class="pagination">

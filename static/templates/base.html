@@ -44,7 +44,7 @@
         
     <div class="container">
         {% if messages %}
-        <div clas='row'>
+        <div class='row'>
             <div class='col-xs-12'>
                     {% for message in messages %}
                     <p{% if message.tags == "success" %} class="alert alert-success"{% endif %}>{{ message }}</p>
@@ -57,11 +57,10 @@
 
       <hr>
 
-      <footer>
-        <p>&copy; <script>document.write(new Date().getFullYear());</script></p>
-      </footer>
+      <div class="footer">
+        &copy; <script>document.write(new Date().getFullYear());</script>
+      </div>
     </div> <!-- /container -->
-
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
