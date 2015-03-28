@@ -1,12 +1,17 @@
 {% extends 'base.html' %}
+{% load custom_markdown %}
+{% load mytags %}
+
+{% block extra_head %} <link rel="stylesheet" href="{{ STATIC_URL }}css/code.css"> {% endblock %}
+
 {% block content %}
-    {{ post.timestamp|date:"N d, Y" }} |
+    {{ post.timestamp|timestamp|date:"N d, Y h:m" }} 
         {% for category in post.categories.all %}
             {% if forloop.counter >= 2 %}  :{% endif %}
             <a href='{{ category.get_absolute_url }}'>{{ category.title }}</a>
         {% endfor %}
         <h1>{{ post.title }}</h1>
-        <p>{{ post.content }}</p>
+        <p>{{ post.content|custom_markdown }}</p>
         
     {% if post.get_previous_by_timestamp %}
         <a href="{{ post.get_previous_post.get_absolute_url }}" >Previous Post</a>
